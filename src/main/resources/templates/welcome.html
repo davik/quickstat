@@ -1,0 +1,80 @@
+{{>layout/header}}
+<body>
+<div id="wrapper">
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Quick ML</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+			<!-- for the sidebar -->
+			<ul class="nav sidebar-nav">
+                <li>
+                    <a href="#">Statistics</a>
+                </li>
+                <li>
+                    <a href="#">Linear Algebra</a>
+                </li>
+                <li>
+                    <a href="#">Machine Learning</a>
+                </li>
+                <li>
+                    <a href="#">Team</a>
+                </li>
+                <!--  Hiding the dropdrown for now 
+	                <li class="dropdown">
+	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
+	                  <ul class="dropdown-menu" role="menu">
+	                    <li class="dropdown-header">Dropdown heading</li>
+	                    <li><a href="#">Action</a></li>
+	                    <li><a href="#">Another action</a></li>
+	                    <li><a href="#">Something else here</a></li>
+	                    <li><a href="#">Separated link</a></li>
+	                    <li><a href="#">One more separated link</a></li>
+	                  </ul>
+	                </li>
+                -->
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+			</div>
+			<div class="col-md-10">
+				<div class="row">
+					<div class="col-md-10">
+						<h2 class="text-center">
+							{{message}}
+						</h2>
+						<h3>Descriptive Statistics</h3>
+						<form id="myForm">
+							<div class="form-group">
+								<textarea name="numbers" id="numbers" placeholder="Input some numbers below(Separated with commas)"
+									class="form-control" rows="6"></textarea>
+							</div>
+							<button id="button" type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div id="result"></div>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- /.container -->
+
+	<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</div>
+</body>
+{{>layout/footer}}
+
+	
