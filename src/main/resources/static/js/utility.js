@@ -8,9 +8,18 @@ $(document).ready(function () {
 
     $.ajax({
 		  type: "POST",
-		  url: "/average",
+		  url: "/desc",
 		  data: numbers,
-		  success: function(data){$("#result").html(data)},
+		  success: function(data){$("#desc").html(data)},
+		  dataType: "text",
+		  contentType: "text/plain"
+		});
+    
+    $.ajax({
+		  type: "POST",
+		  url: "/summary",
+		  data: numbers,
+		  success: function(data){$("#summary").html(data)},
 		  dataType: "text",
 		  contentType: "text/plain"
 		});

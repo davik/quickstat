@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -65,8 +66,8 @@ public class WelcomeController {
     	return statMap;
     }
 	
-	@RequestMapping(value = "/average", method=RequestMethod.POST)
-    String getAverage(Map<String, Object> model, @RequestBody String numbers) throws IOException{
+	@RequestMapping(value = "/desc", method=RequestMethod.POST)
+    String getDescStat(Map<String, Object> model, @RequestBody String numbers) throws IOException{
 		System.out.println("Rest received");
 		System.out.println(numbers);
 		
@@ -90,7 +91,31 @@ public class WelcomeController {
     	model.put("sum", stats.getSum());
     	model.put("var", stats.getVariance());
     	System.out.println(model.get("max"));
-    	return "result";
+    	return "desc";
+    	
+    }
+	
+	@RequestMapping(value = "/summary", method=RequestMethod.POST)
+    String getSummaryStat(Map<String, Object> model, @RequestBody String numbers) throws IOException{
+		System.out.println("Rest received");
+		System.out.println(numbers);
+		
+		numbers = numbers.replace(" ", "");
+		Pattern pattern = Pattern.compile(",");
+		List<Double> values = pattern.splitAsStream(numbers)
+		                            .map(Double::valueOf)
+		                            .collect(Collectors.toList());
+		SummaryStatistics stats = new SummaryStatistics();
+		for(Double val: values) {
+    		stats.addValue(val);
+    	}
+    	
+    	model.put("pop_var", stats.getPopulationVariance());
+    	model.put("quadratic_mean", stats.getQuadraticMean());
+    	model.put("second_moment", stats.getSecondMoment());
+    	model.put("sum_log", stats.getSumOfLogs());
+    	model.put("sum_square", stats.getSumsq());
+    	return "summary";
     	
     }
 
