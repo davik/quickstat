@@ -118,5 +118,31 @@ public class WelcomeController {
     	return "summary";
     	
     }
+	
+	@RequestMapping(value = "/contact", method=RequestMethod.GET)
+	String getContactPage() throws IOException {
+		return "contact";
+	}
+	
+	@RequestMapping(value = "/linear_algebra", method=RequestMethod.GET)
+	String getLinearAlgebraPage() throws IOException {
+		return "linear_algebra";
+	}
+	
+	@RequestMapping(value = "/machine_learning", method=RequestMethod.GET)
+	String getMachineLearningPage() throws IOException {
+		return "machine_learning";
+	}
+	
+	@RequestMapping(value = "/team", method=RequestMethod.GET)
+	String getTeamPage() throws IOException {
+		return "team";
+	}
+	
+	@RequestMapping(value = "/statistics", method=RequestMethod.GET)
+	String getStatisticsPage(Map<String, Object> model) throws IOException {
+		model.put("message", MESSAGE);
+		return "statistics";
+	}
 
 }
