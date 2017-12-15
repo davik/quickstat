@@ -34,27 +34,5 @@ $(document).ready(function () {
 		  dataType: "text",
 		  contentType: "text/plain"
 		});
-  });
-  
-  $('#contact').click(function (e) {
-	  call(e, "/contact");
-  });
-  
-  $('#statistics').click(function (e) {
-	  call(e, "/statistics");
-  });
-  
-  $('#machine_learning').click(function (e) {
-	  call(e, "/machine_learning");
-  });
-  
-  $('#linear_algebra').click(function (e) {
-	  call(e, "/linear_algebra");
-  });
-  
-  $('#team').click(function (e) {
-	  call(e, "/team");
-  });
-  
-	  
+  }); 
 });

@@ -120,22 +120,30 @@ public class WelcomeController {
     }
 	
 	@RequestMapping(value = "/contact", method=RequestMethod.GET)
-	String getContactPage() throws IOException {
+	String getContactPage(Map<String, Object> model) throws IOException {
+		model.put("title", TITLE);
+		model.put("message", MESSAGE);
 		return "contact";
 	}
 	
 	@RequestMapping(value = "/linear_algebra", method=RequestMethod.GET)
-	String getLinearAlgebraPage() throws IOException {
+	String getLinearAlgebraPage(Map<String, Object> model) throws IOException {
+		model.put("title", TITLE);
+		model.put("message", MESSAGE);
 		return "linear_algebra";
 	}
 	
 	@RequestMapping(value = "/machine_learning", method=RequestMethod.GET)
-	String getMachineLearningPage() throws IOException {
+	String getMachineLearningPage(Map<String, Object> model) throws IOException {
+		model.put("title", TITLE);
+		model.put("message", MESSAGE);
 		return "machine_learning";
 	}
 	
 	@RequestMapping(value = "/team", method=RequestMethod.GET)
-	String getTeamPage() throws IOException {
+	String getTeamPage(Map<String, Object> model) throws IOException {
+		model.put("title", TITLE);
+		model.put("message", MESSAGE);
 		return "team";
 	}
 	
